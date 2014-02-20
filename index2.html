@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="jsxgraph.css" />
+        <script type="text/javascript" src="jsxgraphcore.js"></script> 
+        <script src="gibberish_2.0.js"></script>
+        <div id="jxgbox" class="jxgbox" style="width:600px; height:400px;"></div>
+    </head>
+    <body>
+        
+        
+        <script type="text/javascript">
+            
+// Begin Gibberish sound synthesis
+    Gibberish.init();
+    Gibberish.Time.export();
+    Gibberish.Binops.export();  
+a = new Gibberish.Table({ amp: 1 });
+var t = []
+for( var i = 0; i < 1024; i++ ) { t[ i ] = Gibberish.rndf(-1,1) }
+a.setTable( t )
+
+b = new Gibberish.Sampler({ 
+  file: 'resources/predator.wav',
+  loops: true,
+  pitch: Abs( a )
+}).connect()
+         </script>
+    
+    </body>
+</html>
